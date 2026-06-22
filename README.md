@@ -2,7 +2,7 @@
 
 A retro-styled virtual pet that grows as you code. Log your coding sessions, watch your pet evolve through 7 stages, earn achievements, and build streaks — all without an account or internet connection.
 
-**[Live Demo →](https://pixel-pet.netlify.app)**
+**[Live Demo →](https://pixel-pet-rr.netlify.app/)**
 
 ---
 
