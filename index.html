@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pixel Pet — Coding Habit Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon.svg">
+<meta name="theme-color" content="#8B7FA8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pixel Pet">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="page-title">
+    <h1 class="display-font">PIXEL PET</h1>
+    <span>grows on your real coding sessions — logged by you</span>
+  </div>
+
+  <div class="layout">
+
+    <!-- DEVICE -->
+    <div class="device">
+      <div class="device-header">
+        <span class="device-brand">PIXEL-PET™ &nbsp;v2.0</span>
+        <div class="device-led" id="led"></div>
+      </div>
+
+      <div class="screen-bezel">
+        <div class="screen" id="screen">
+          <div class="scanlines"></div>
+          <div class="toast" id="toast"></div>
+          <div class="stage-label display-font" id="stageLabel">LOADING</div>
+          <div class="sprite-wrap">
+            <canvas id="petCanvas" class="sprite-bob"></canvas>
+          </div>
+          <div class="pet-name-row">
+            <input class="pet-name display-font" id="petName" maxlength="16" value="Pixel" />
+          </div>
+          <div class="screen-timer display-font" id="screenTimer" aria-live="polite"></div>
+          <div class="mood-line" id="moodLine">waking up…</div>
+        </div>
+      </div>
+
+      <div class="vitals">
+        <div class="vital-row">
+          <span class="vital-label">XP</span>
+          <div class="vital-track"><div class="vital-fill xp" id="xpFill" style="width:0%"></div></div>
+          <span class="vital-num" id="xpNum">0</span>
+        </div>
+        <div class="vital-row">
+          <span class="vital-label">HUNGER</span>
+          <div class="vital-track"><div class="vital-fill hunger" id="hungerFill" style="width:0%"></div></div>
+          <span class="vital-num" id="hungerNum">–</span>
+        </div>
+      </div>
+
+      <div class="streak-row">
+        <span>🔥 streak: <b id="streakNum">0</b> day(s)</span>
+        <span>best: <b id="bestStreak">0</b></span>
+      </div>
+
+      <div class="timer-section">
+        <button id="timerBtn" class="timer-btn display-font">&#9654; START</button>
+        <span class="timer-clock display-font" id="timerClock" aria-live="polite"></span>
+        <button id="timerDiscard" class="timer-discard" aria-label="Discard timer" title="Discard">&#x2715;</button>
+      </div>
+
+      <div class="device-controls">
+        <div class="dpad" aria-hidden="true"><div class="v"></div><div class="h"></div></div>
+        <div class="btn-group">
+          <button class="round-btn" id="helpBtn" aria-label="How this works" title="How this works">?</button>
+          <button class="round-btn" id="resetBtn" aria-label="Reset pet data" title="Reset pet data">↺</button>
+        </div>
+      </div>
+
+      <div class="help-pop" id="helpPop">
+        <h4>HOW IT WORKS</h4>
+        <p><b>XP</b> only goes up — log a session, your pet grows a stage. It never loses progress.</p>
+        <p><b>Hunger</b> drifts down the longer it's been since your last log, and jumps back up when you log. No penalty, just a nudge.</p>
+        <p><b>Streak</b> counts consecutive days with at least one log.</p>
+        <p>Everything is saved right in this browser — no account, no syncing across devices.</p>
+      </div>
+    </div>
+
+    <!-- TERMINAL -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span>session-log — zsh</span>
+      </div>
+
+      <div class="terminal-body">
+        <div class="prompt"><span class="path">~/coding</span> $ log-session</div>
+
+        <form id="logForm">
+          <label for="minutesInput">minutes</label>
+          <input type="number" id="minutesInput" min="1" max="600" placeholder="45" required />
+
+          <label for="typeInput">type</label>
+          <select id="typeInput">
+            <option>Feature</option>
+            <option>Bug fix</option>
+            <option>Refactor</option>
+            <option>Learning</option>
+            <option>Open source</option>
+            <option>Other</option>
+          </select>
+
+          <label for="noteInput">note</label>
+          <input type="text" id="noteInput" maxlength="60" placeholder="optional — what did you work on?" />
+
+          <button type="submit" class="log-btn">log session →</button>
+        </form>
+
+        <hr class="divider" />
+
+        <div class="section-title">contribution graph — last 10 weeks</div>
+        <div class="graph-scroll">
+          <div class="graph" id="graph"></div>
+        </div>
+        <div class="graph-legend">
+          <span>less</span>
+          <div class="graph-cell" style="background:rgba(244,239,230,0.06)"></div>
+          <div class="graph-cell" style="background:rgba(232,163,61,0.25)"></div>
+          <div class="graph-cell" style="background:rgba(232,163,61,0.5)"></div>
+          <div class="graph-cell" style="background:rgba(232,163,61,0.75)"></div>
+          <div class="graph-cell" style="background:rgba(232,163,61,1)"></div>
+          <span>more</span>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="section-title">git log — session history</div>
+        <div class="history" id="history">
+          <div class="empty-state">No commits yet. Log your first session above and your pet will hatch.</div>
+        </div>
+      </div>
+
+      <div class="terminal-footer">
+        <span class="footnote">saved in this browser · private to this device</span>
+        <button class="reset-link" id="resetLink">reset all data</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="achievements-section">
+    <div class="ach-header">
+      <h2>ACHIEVEMENTS</h2>
+      <span class="ach-count" id="achCount">0 / 21</span>
+    </div>
+    <div class="ach-grid" id="achievementsGrid"></div>
+  </div>
+
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

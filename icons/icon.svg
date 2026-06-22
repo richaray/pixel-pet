@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Device shell -->
+  <rect width="192" height="192" rx="40" fill="#8B7FA8"/>
+  <!-- Screen bezel -->
+  <rect x="28" y="28" width="136" height="136" rx="18" fill="#463E5E"/>
+  <!-- Screen -->
+  <rect x="36" y="36" width="120" height="120" rx="12" fill="#1F2421"/>
+
+  <!-- Architect sprite: 12x12 grid, 8px cells, origin (48,48) -->
+  <!-- Row 0: ....#..#.... -->
+  <rect x="80" y="48" width="8" height="8" fill="#E8A33D"/>
+  <rect x="104" y="48" width="8" height="8" fill="#E8A33D"/>
+  <!-- Row 1: ...######... -->
+  <rect x="72" y="56" width="48" height="8" fill="#E8A33D"/>
+  <!-- Row 2: ..########.. -->
+  <rect x="64" y="64" width="64" height="8" fill="#E8A33D"/>
+  <!-- Row 3: ..#......#.. -->
+  <rect x="64" y="72" width="8"  height="8" fill="#E8A33D"/>
+  <rect x="120" y="72" width="8" height="8" fill="#E8A33D"/>
+  <!-- Row 4: .##########. -->
+  <rect x="56" y="80" width="80" height="8" fill="#E8A33D"/>
+  <!-- Row 5: .##########. -->
+  <rect x="56" y="88" width="80" height="8" fill="#E8A33D"/>
+  <!-- Row 6: .##########. -->
+  <rect x="56" y="96" width="80" height="8" fill="#E8A33D"/>
+  <!-- Row 7: ############ -->
+  <rect x="48" y="104" width="96" height="8" fill="#E8A33D"/>
+  <!-- Row 8: ..########.. -->
+  <rect x="64" y="112" width="64" height="8" fill="#E8A33D"/>
+  <!-- Row 9: ..########.. -->
+  <rect x="64" y="120" width="64" height="8" fill="#E8A33D"/>
+  <!-- Row 10: ...######... -->
+  <rect x="72" y="128" width="48" height="8" fill="#E8A33D"/>
+  <!-- Row 11: ...######... -->
+  <rect x="72" y="136" width="48" height="8" fill="#E8A33D"/>
+</svg>
