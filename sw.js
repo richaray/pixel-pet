@@ -1,22 +1,20 @@
 const CACHE = 'pixelpet-v2';
 
-const BASE = '/pixel-pet';
-
 const APP_ASSETS = [
-  `${BASE}/`,
-  `${BASE}/index.html`,
-  `${BASE}/css/styles.css`,
-  `${BASE}/manifest.json`,
-  `${BASE}/js/main.js`,
-  `${BASE}/js/sprites.js`,
-  `${BASE}/js/state.js`,
-  `${BASE}/js/render.js`,
-  `${BASE}/js/animate.js`,
-  `${BASE}/js/timer.js`,
-  `${BASE}/js/achievements.js`,
-  `${BASE}/icons/icon.svg`,
-  `${BASE}/icons/icon-192.png`,
-  `${BASE}/icons/icon-512.png`,
+  '/',
+  '/index.html',
+  '/css/styles.css',
+  '/manifest.json',
+  '/js/main.js',
+  '/js/sprites.js',
+  '/js/state.js',
+  '/js/render.js',
+  '/js/animate.js',
+  '/js/timer.js',
+  '/js/achievements.js',
+  '/icons/icon.svg',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
 ];
 
 // Install: pre-cache all app assets (skip any that 404)

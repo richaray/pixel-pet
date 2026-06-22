@@ -168,7 +168,7 @@ setInterval(() => { renderVitals(); renderHistory(); }, 60_000);
 
 /* ── Service worker (PWA) ───────────────────────────────────────── */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/pixel-pet/sw.js', { scope: '/pixel-pet/' }).catch(() => {});
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
 }
 
 /* ── Init ───────────────────────────────────────────────────────── */

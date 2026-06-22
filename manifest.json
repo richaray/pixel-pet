@@ -2,7 +2,7 @@
   "name": "Pixel Pet — Coding Habit Tracker",
   "short_name": "Pixel Pet",
   "description": "A pixel art pet that grows with your coding sessions",
-  "start_url": "/pixel-pet/",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#F4EFE6",
